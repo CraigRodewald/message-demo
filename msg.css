@@ -1,16 +1,31 @@
-#msg_box {
+#msg_wrapper {
+  position: absolute;
+  right: 0;
+  width: 40%;
+  overflow: hidden;
+}
+
+.msg_box {
   font-family: 'Roboto', sans-serif;
-  position:relative;
   border-radius: 10px;
   box-shadow: 0px 5px 10px 1px rgba(0,0,0,0.6);
-  background: #fff;
-  color: #4c4c4c;
-  width: 25%;
+  background: rgba(3, 3, 3, 0.8);
+  color: #fff;
+  width: 50%;
   height: auto;
   float: right;
+  margin: 10px;
   padding: 15px;
-  z-index: 100;
-  /*display: none;*/
+  z-index: 1000;
+  position: relative;
+  display:table;
+  cursor: pointer;
+}
+
+
+.msg_box:hover {
+  inner
+  color: red;
 }
 
 .footer {
@@ -19,16 +34,4 @@
     text-align: center;
     width: 99%;
     height: 24px;
-}
-
-.fa {
-  float: right;
-  color: #106fbf;
-  cursor: pointer;
-}
-
-.fa:hover {
-  color: red;
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24);
-  cursor: pointer;
 }

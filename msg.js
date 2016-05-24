@@ -1,17 +1,29 @@
 var loopHandle = null;
+var messagesShown =0;
 
 // The messageSystem object is where you should do all of your work
 // Use any combination of javascript, HTML and CSS that you feeling
 // is appropriate
 messageSystem = {
     showMessage: function(msg) {
+
+        var DOMmessage = document.createElement('li');
+        var messageText = document.createTextNode(msg);
+        DOMmessage.className = "msg_box";
+        DOMmessage.innerText = msg;
+
+        document.getElementById('messages').appendChild(DOMmessage);
+        $(DOMmessage).animate({right: '+=15%'}, 100).animate({right: '-=15%'}, 200).delay(3000).animate({right: '-=200%'}).fadeOut();
+
+        $(DOMmessage).on( 'click' , function(){
+          $(this).fadeOut(1000);
+          messagesShown -=2;
+          this.remove();
+        });
+
         //alert(msg);
-        document.getElementById("msg_box").style.display = "inline";
-        document.getElementById("msg_text").innerHTML = msg;
     }
 };
-
-
 
 function showMsg() {
     quotes = [
@@ -32,6 +44,8 @@ function loop() {
     showMsg();
     var rand = Math.round(Math.random() * (3000 - 500)) + 500;
     loopHandle = setTimeout(loop, rand);
+  //loopHandle = null;
+
 }
 
 
@@ -41,9 +55,11 @@ $(function() {
       btnTxt = btn.text();
        if (btnTxt === 'Start Messages') {
            btn.text('Stop Messages');
+           $('.run_indicator').html( '<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>');
            loopHandle = setTimeout(loop, 500);
        } else {
            btn.text('Start Messages');
+           $('.run_indicator').hide();
            clearTimeout(loopHandle);
            loopHandle = null;
        }

@@ -16,9 +16,7 @@ messageSystem = {
         $(DOMmessage).animate({right: '+=15%'}, 100).animate({right: '-=15%'}, 200).delay(3000).animate({right: '-=200%'}).fadeOut();
 
         $(DOMmessage).on( 'click' , function(){
-          $(this).fadeOut(1000);
-          messagesShown -=2;
-          this.remove();
+          $(this).fadeOut(1000).remove();
         });
 
         //alert(msg);
@@ -55,7 +53,7 @@ $(function() {
       btnTxt = btn.text();
        if (btnTxt === 'Start Messages') {
            btn.text('Stop Messages');
-           $('.run_indicator').html( '<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>');
+           $('.run_indicator').html( '<i class="fa fa-spinner fa-pulse fa-2x fa-fw"></i>');
            loopHandle = setTimeout(loop, 500);
        } else {
            btn.text('Start Messages');

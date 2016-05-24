@@ -5,6 +5,10 @@
   overflow: hidden;
 }
 
+#directions-list {
+  width: 50%;
+}
+
 .msg_box {
   font-family: 'Roboto', sans-serif;
   border-radius: 10px;
@@ -22,6 +26,10 @@
   cursor: pointer;
 }
 
+.run_indicator{
+  float: left;
+  color: #106fbf;
+}
 
 .msg_box:hover {
   inner
